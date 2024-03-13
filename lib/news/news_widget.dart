@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app/api/api_manager.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/model/SourceResponse.dart';
@@ -58,12 +59,12 @@ class _NewsWidgetState extends State<NewsWidget> {
               } else if (snapshot.hasError) {
                 return Column(
                   children: [
-                    Text('Something went wrong '),
+                    Text(AppLocalizations.of(context)!.error_message),
                     ElevatedButton(
                       onPressed: () {
                         setState(() {});
                       },
-                      child: Text('Try again'),
+                      child: Text(AppLocalizations.of(context)!.try_again),
                     ),
                   ],
                 );
@@ -75,7 +76,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                       onPressed: () {
                         setState(() {});
                       },
-                      child: Text('Try again'),
+                      child: Text(AppLocalizations.of(context)!.try_again),
                     ),
                   ],
                 );

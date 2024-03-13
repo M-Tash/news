@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app/theme/my_theme.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -16,9 +17,11 @@ HomeDrawer({required this.onSideMenuItemClick});
           width: double.infinity,
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height*0.07),
-          child: Text('News APP !',
+          child: Text(
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
-          textAlign: TextAlign.center,),
+            textAlign: TextAlign.center,
+          ),
         ),
         SizedBox(height: 25,),
         InkWell(
@@ -30,9 +33,13 @@ HomeDrawer({required this.onSideMenuItemClick});
               SizedBox(width: 10),
               Icon(CupertinoIcons.list_bullet,size: 40,),
               SizedBox(width: 15),
-              Text('Categories',style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontSize: 23
-              ),)
+              Text(
+                AppLocalizations.of(context)!.categories,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 23),
+              )
             ],
           ),
         ),
@@ -46,9 +53,13 @@ HomeDrawer({required this.onSideMenuItemClick});
               SizedBox(width: 10),
               Icon(Icons.settings,size: 40,),
               SizedBox(width: 15),
-              Text('Settings',style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontSize: 23
-              ),)
+              Text(
+                AppLocalizations.of(context)!.settings,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 23),
+              )
             ],
           ),
         ),

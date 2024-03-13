@@ -1,0 +1,19 @@
+{
+  "app_title": "تطبيق الأخبار",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "search": "البحث",
+  "categories": "الفئات",
+  "categories_hint": "اختر فئة اهتماماتك",
+  "sport": "رياضة",
+  "general": "عامة",
+  "health": "صحة",
+  "business": "أعمال",
+  "technology": "تكنولوجيا",
+  "science": "علم",
+  "error_message": "حدث خطأ ما",
+  "try_again": "حاول مرة أخرى",
+  "view_article": "عرض المقال كاملاً"
+}

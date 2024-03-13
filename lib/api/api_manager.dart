@@ -9,7 +9,7 @@ class ApiManager{
   static Future<SourceResponse?> getSources(String categoryId)async{
     Uri url =Uri.https(ApiConstants.baseUrl,ApiConstants.sourcesApi,
     {
-      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'apiKey': '8ec7ae6ec57c4a0c81946cc76414ce57',
       'category': categoryId,
     });
     try{
@@ -25,7 +25,7 @@ class ApiManager{
   static Future<NewsResponse?> getNewsBySourceId(
       {required String sourceId, int page = 1}) async {
     Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi, {
-      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'apiKey': '8ec7ae6ec57c4a0c81946cc76414ce57',
       'sources': sourceId,
       'page': page.toString(),
     });
@@ -41,7 +41,7 @@ class ApiManager{
 
   static Future<NewsResponse?> searchNews({required String query}) async {
     Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi, {
-      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'apiKey': '8ec7ae6ec57c4a0c81946cc76414ce57',
       'q': query,
     });
     try {

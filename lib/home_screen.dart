@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app/category/category.dart';
 import 'package:news_app/category/category_details.dart';
 import 'package:news_app/category/category_fragment.dart';
@@ -10,7 +11,7 @@ import 'package:news_app/theme/my_theme.dart';
 import 'drawer/home_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName ='home_screen';
+  static const String routeName = 'home_screen';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -63,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         hintStyle: TextStyle(
                             color: MyTheme.primaryColor, fontSize: 15),
                         border: InputBorder.none,
-                        hintText: 'Search',
+                        hintText: AppLocalizations.of(context)!.search,
                         prefixIcon: IconButton(
                             icon: Icon(
                               Icons.close,
@@ -91,10 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ))
               : AppBar(
                   title: Text(
-                    selectedMenuItem == HomeDrawer.settings
-                        ? 'Settings'
+              selectedMenuItem == HomeDrawer.settings
+                        ? AppLocalizations.of(context)!.settings
                         : selectedCategory == null
-                            ? 'News App'
+                            ? AppLocalizations.of(context)!.app_title
                             : selectedCategory!.title,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),

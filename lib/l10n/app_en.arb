@@ -1,0 +1,19 @@
+{
+  "app_title": "News App",
+  "settings": "Settings",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "search": "Search",
+  "categories": "Categories",
+  "categories_hint": "Pick your category of interest",
+  "sport": "Sport",
+  "general": "General",
+  "health": "Health",
+  "business": "Business",
+  "technology": "Technology",
+  "science": "Science",
+  "error_message": "Something went wrong",
+  "try_again": "Try Again",
+  "view_article": "View Full article"
+}
