@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/api/api_manager.dart';
 import 'package:news_app/model/NewsResponse.dart';
-import 'package:news_app/model/SourceResponse.dart';
 import 'package:news_app/news/news_item.dart';
 
 import '../theme/my_theme.dart';
 import 'details_screen.dart';
 
-class NewsWidget extends StatefulWidget {
-  Source source;
+class SearchWidget extends StatefulWidget {
+  String? searchQuery;
 
-  NewsWidget({required this.source});
+  SearchWidget({required this.searchQuery});
 
   Future<NewsResponse?> searchNews(String searchQuery) async {
     try {
@@ -21,33 +20,17 @@ class NewsWidget extends StatefulWidget {
   }
 
   @override
-  State<NewsWidget> createState() => _NewsWidgetState();
+  State<SearchWidget> createState() => _SearchWidgetState();
 }
 
-class _NewsWidgetState extends State<NewsWidget> {
-  late ScrollController scrollController;
-  int currentPage = 1;
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController = ScrollController();
-    scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        loadNextPage();
-      }
-    });
-  }
-
+class _SearchWidgetState extends State<SearchWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: FutureBuilder<NewsResponse?>(
-            future: ApiManager.getNewsBySourceId(
-                sourceId: widget.source.id ?? '', page: currentPage),
+            future: widget.searchNews(widget.searchQuery!),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
@@ -82,7 +65,6 @@ class _NewsWidgetState extends State<NewsWidget> {
               }
               final newsList = snapshot.data?.articles ?? [];
               return ListView.builder(
-                controller: scrollController,
                 itemBuilder: (context, index) {
                   return NewsItem(
                     news: newsList[index],
@@ -96,12 +78,6 @@ class _NewsWidgetState extends State<NewsWidget> {
         ),
       ],
     );
-  }
-
-  void loadNextPage() {
-    setState(() {
-      currentPage++;
-    });
   }
 
   void onItemClick(News news) {

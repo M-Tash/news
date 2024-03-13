@@ -9,8 +9,8 @@ class ApiManager{
   static Future<SourceResponse?> getSources(String categoryId)async{
     Uri url =Uri.https(ApiConstants.baseUrl,ApiConstants.sourcesApi,
     {
-      'apiKey' : '1acb2b24c19c406190c114d2052e8cca',
-      'category':categoryId,
+      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'category': categoryId,
     });
     try{
       var response = await http.get(url);
@@ -18,29 +18,40 @@ class ApiManager{
       var json = jsonDecode(responseBody);
      return SourceResponse.fromJson(json);
     }catch(e){
-      throw e ;
-
+      throw e;
     }
-
   }
 
-  static Future<NewsResponse?> getNewsBySourceId(String sourceId)async{
-    Uri url =Uri.https(ApiConstants.baseUrl,
-    ApiConstants.newsApi,
-    {
-      'apiKey' : '1acb2b24c19c406190c114d2052e8cca',
-      'sources': sourceId
+  static Future<NewsResponse?> getNewsBySourceId(
+      {required String sourceId, int page = 1}) async {
+    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi, {
+      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'sources': sourceId,
+      'page': page.toString(),
     });
-    try{
+    try {
       var response = await http.get(url);
-      var responseBody =response.body ;
+      var responseBody = response.body;
       var json = jsonDecode(responseBody);
       return NewsResponse.fromJson(json);
-    }catch(e){
-      throw e ;
+    } catch (e) {
+      throw e;
     }
+  }
 
-
+  static Future<NewsResponse?> searchNews({required String query}) async {
+    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi, {
+      'apiKey': '8398ab1f2cd84107a6b66ea205766f07',
+      'q': query,
+    });
+    try {
+      var response = await http.get(url);
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return NewsResponse.fromJson(json);
+    } catch (e) {
+      throw e;
+    }
   }
 
 }
