@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/news/news_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../model/NewsResponse.dart';
 import '../theme/my_theme.dart';
 
 class DetailsScreen extends StatefulWidget {

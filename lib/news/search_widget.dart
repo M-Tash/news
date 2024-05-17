@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app/api/api_manager.dart';
-import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/news/news_item.dart';
 
+import '../model/NewsResponse.dart';
 import '../theme/my_theme.dart';
 import 'details_screen.dart';
 

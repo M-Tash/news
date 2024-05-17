@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news_app/api/api_manager.dart';
-import 'package:news_app/model/NewsResponse.dart';
+import 'package:news_app/di.dart';
 import 'package:news_app/model/SourceResponse.dart';
 import 'package:news_app/news/news_item.dart';
 
+import '../model/NewsResponse.dart';
 import '../theme/my_theme.dart';
+import 'cubit/news_details_view_model.dart';
+import 'cubit/states.dart';
 import 'details_screen.dart';
 
 class NewsWidget extends StatefulWidget {
@@ -26,12 +30,16 @@ class NewsWidget extends StatefulWidget {
 }
 
 class _NewsWidgetState extends State<NewsWidget> {
+  NewsDetailsViewModel viewModel =
+      NewsDetailsViewModel(repositoryContract: injectNewsRepositoryContract());
   late ScrollController scrollController;
   int currentPage = 1;
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
+    viewModel.getNews(widget.source.id!, currentPage);
     scrollController = ScrollController();
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
@@ -46,32 +54,31 @@ class _NewsWidgetState extends State<NewsWidget> {
     return Column(
       children: [
         Expanded(
-          child: FutureBuilder<NewsResponse?>(
-            future: ApiManager.getNewsBySourceId(
-                sourceId: widget.source.id ?? '', page: currentPage),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
+          child: BlocBuilder(
+            bloc: viewModel,
+            builder: (context, state) {
+              if (state is NewsSuccessState) {
+                final newsList = state.newsList;
+                return ListView.builder(
+                  controller: scrollController,
+                  itemBuilder: (context, index) {
+                    return NewsItem(
+                      news: newsList[index],
+                      onItemClick: onItemClick,
+                    );
+                  },
+                  itemCount: newsList.length,
+                );
+              } else if (state is NewsLoadingState) {
                 return Center(
                   child: CircularProgressIndicator(
                     backgroundColor: MyTheme.primaryColor,
                   ),
                 );
-              } else if (snapshot.hasError) {
+              } else if (state is NewsErrorState) {
                 return Column(
                   children: [
-                    Text(AppLocalizations.of(context)!.error_message),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {});
-                      },
-                      child: Text(AppLocalizations.of(context)!.try_again),
-                    ),
-                  ],
-                );
-              } else if (snapshot.data?.status != 'ok') {
-                return Column(
-                  children: [
-                    Text(snapshot.data!.message!),
+                    Text(state.errorMessage!),
                     ElevatedButton(
                       onPressed: () {
                         setState(() {});
@@ -81,17 +88,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                   ],
                 );
               }
-              final newsList = snapshot.data?.articles ?? [];
-              return ListView.builder(
-                controller: scrollController,
-                itemBuilder: (context, index) {
-                  return NewsItem(
-                    news: newsList[index],
-                    onItemClick: onItemClick,
-                  );
-                },
-                itemCount: newsList.length,
-              );
+              return Text(AppLocalizations.of(context)!.try_again);
             },
           ),
         ),
