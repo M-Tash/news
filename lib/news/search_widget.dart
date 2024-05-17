@@ -52,16 +52,23 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ],
                 );
               } else if (snapshot.data?.status != 'ok') {
-                return Column(
-                  children: [
-                    Text(snapshot.data!.message!),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {});
-                      },
-                      child: Text(AppLocalizations.of(context)!.try_again),
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      children: [
+                        Text('Result not found'),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              foregroundColor: MyTheme.primaryColor),
+                          onPressed: () {
+                            setState(() {});
+                          },
+                          child: Text(AppLocalizations.of(context)!.try_again),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 );
               }
               final newsList = snapshot.data?.articles ?? [];

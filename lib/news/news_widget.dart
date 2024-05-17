@@ -80,6 +80,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                   children: [
                     Text(state.errorMessage!),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          foregroundColor: MyTheme.primaryColor),
                       onPressed: () {
                         setState(() {});
                       },
