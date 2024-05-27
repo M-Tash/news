@@ -1,13 +1,13 @@
 # News App with Flutter
 
-This is a news application built with Flutter that uses NewsAPI for fetching news articles. The app follows the MVVM pattern and employs Bloc and Cubit for state management. Users can search for news articles and view them in a webview.
+This is a news application built with Flutter that uses NewsAPI for fetching news articles. The app follows the repository pattern and employs Cubit for state management. Users can search for news articles and view them in a webview.
 
 ## Features
 
 - Fetches the latest news articles from NewsAPI.
 - Real-time search functionality to find specific news articles.
-- State management using Bloc and Cubit.
-- Implements the MVVM (Model-View-ViewModel) pattern for a clean and maintainable codebase.
+- State management using Cubit.
+- Implements the repository pattern for a clean and maintainable codebase.
 - Allows users to pick their favorite news categories.
 - Displays news articles in a webview for a better reading experience.
 - User-friendly interface with smooth navigation and interaction.
@@ -15,10 +15,10 @@ This is a news application built with Flutter that uses NewsAPI for fetching new
 ## Technologies Used
 
 - **NewsAPI**: Provides the latest news articles from various sources.
-- **Bloc and Cubit**: For efficient state management and handling complex state interactions.
+- **Cubit**: For efficient state management and handling complex state interactions.
 - **Flutter**: The app is built using the Flutter framework for cross-platform development.
 - **Dart**: Dart is the programming language used for developing the Flutter app.
-- **MVVM Pattern**: The app follows the Model-View-ViewModel pattern for a clean and maintainable codebase.
+- **Repository Pattern**: The app follows the repository pattern for a clean and maintainable codebase.
 
 ## Usage
 
