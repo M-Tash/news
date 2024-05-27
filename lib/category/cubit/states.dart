@@ -1,7 +1,5 @@
 import '../../model/SourceResponse.dart';
-
 abstract class SourceStates {}
-
 class SourceInitState extends SourceStates {}
 
 class SourceLoadingState extends SourceStates {}
