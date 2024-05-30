@@ -15,5 +15,6 @@
   "science": "Science",
   "error_message": "Something went wrong",
   "try_again": "Try Again",
-  "view_article": "View Full article"
+  "view_article": "View Full article",
+  "result_not_found": "Result not found"
 }

@@ -15,5 +15,6 @@
   "science": "علم",
   "error_message": "حدث خطأ ما",
   "try_again": "حاول مرة أخرى",
-  "view_article": "عرض المقال كاملاً"
+  "view_article": "عرض المقال كاملاً",
+  "result_not_found": "لم يتم العثور على النتيجة"
 }

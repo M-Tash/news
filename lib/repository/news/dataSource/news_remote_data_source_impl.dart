@@ -1,4 +1,4 @@
-import 'package:news_app/api/api_manager.dart';
+import 'package:news_app/core/api_helper/api_manager.dart';
 import 'package:news_app/model/NewsResponse.dart';
 import 'package:news_app/repository/news/news_repository_contract.dart';
 
