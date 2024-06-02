@@ -21,7 +21,7 @@ class NewsWidget extends StatefulWidget {
     try {
       return await ApiManager.searchNews(query: searchQuery);
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -70,10 +70,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                   itemCount: newsList.length,
                 );
               } else if (state is NewsLoadingState) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: MyTheme.primaryColor,
-                  ),
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else if (state is NewsErrorState) {
                 return Column(

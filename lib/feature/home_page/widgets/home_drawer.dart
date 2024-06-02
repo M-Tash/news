@@ -35,7 +35,7 @@ class HomeDrawer extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 10),
-              Icon(
+              const Icon(
                 CupertinoIcons.list_bullet,
                 size: 40,
               ),

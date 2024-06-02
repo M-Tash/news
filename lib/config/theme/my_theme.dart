@@ -12,6 +12,7 @@ class MyTheme {
   static Color blueColor = const Color(0xff4882CF);
   static Color yellowColor = const Color(0xffF2D352);
   static ThemeData lightMode = ThemeData(
+    colorScheme: const ColorScheme.light(primary: Color(0xff39A552)),
     appBarTheme: AppBarTheme(
         iconTheme: IconThemeData(color: whiteColor),
         backgroundColor: primaryColor,

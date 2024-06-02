@@ -12,6 +12,14 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.4),
+              spreadRadius: 4,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
           color: category.color,
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(25),

@@ -47,7 +47,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 NewsItem(news: args.news),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.28,
+                  height: MediaQuery.of(context).size.height * 0.30,
                   decoration: BoxDecoration(
                     border: Border.all(color: MyTheme.primaryColor),
                     color: MyTheme.whiteColor,
@@ -57,17 +57,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 150,
-                          child: Text(
-                            args.news.description ?? '',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15,
-                                ),
+                        child: Expanded(
+                          child: SizedBox(
+                            child: Text(
+                              args.news.description ?? '',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 16,
+                                  ),
+                            ),
                           ),
                         ),
                       ),
@@ -77,7 +78,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           _launchUrl(url);
                         },
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
                               const Spacer(),
@@ -85,7 +86,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Icon(Icons.play_arrow)
+                              const Icon(Icons.play_arrow)
                             ],
                           ),
                         ),

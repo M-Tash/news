@@ -48,10 +48,8 @@ class _CategoryDetailsState extends State<CategoryDetails> {
               ],
             );
           } else if (state is SourceLoadingState) {
-            return Center(
-              child: CircularProgressIndicator(
-                backgroundColor: MyTheme.primaryColor,
-              ),
+            return const Center(
+              child: CircularProgressIndicator(),
             );
           } else {
             return Text(AppLocalizations.of(context)!.try_again);
