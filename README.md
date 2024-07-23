@@ -28,6 +28,13 @@ This is a news application built with Flutter that uses NewsAPI for fetching new
 3. Pick your favorite news categories to get articles tailored to your interests.
 4. Tap on an article to open it in a webview for detailed reading.
 5. Navigate back to continue exploring other news articles.
+   
+## Demo 
+
+
+https://github.com/user-attachments/assets/6a03d329-b9bf-467e-90ea-845b03b3dc6b
+
+
 
 ## Screenshots
 <img src="https://github.com/M-Tash/news/assets/158067954/2a00cdf0-0525-4f87-8f2c-e98c0b15526d" alt="Screenshot 3" width="30%">
