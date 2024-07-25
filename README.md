@@ -46,9 +46,3 @@ https://github.com/user-attachments/assets/6a03d329-b9bf-467e-90ea-845b03b3dc6b
 
 
 
-## Installation
-
-- Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/newsapp.git
